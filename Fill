@@ -1,0 +1,46 @@
+//Michael Tirone
+ @beginning
+    M=-1        // M Register is equal to -1
+    D=0         // Argument - what to set screen bits to
+    @SETSCREEN	//sets
+    0;JMP
+
+(LOOP)
+    @KBD	//Keyboard command
+    D=M         //D resister becomes equal to 
+    @SETSCREEN	//
+    D;JEQ       //
+    D=-1        //
+(SETSCREEN)     
+    @ARG
+    M=D         //
+    @beginning     // 
+    D=D-M       // 
+    @LOOP
+    D;JEQ        //     
+    @ARG
+    D=M
+    @beginning
+    M=D         // 
+    
+    @SCREEN
+    D=A         // 
+    @8192
+    D=D+A       // 
+    @i
+    M=D         //
+    
+(SETLOOP)    
+    @i
+    D=M-1
+    M=D         
+    @LOOP
+    D;JLT       
+    
+    @beginning
+    D=M         
+    @i
+    A=M         
+    M=D         
+    @SETLOOP
+    0;JMP
